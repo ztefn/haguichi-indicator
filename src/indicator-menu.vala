@@ -15,12 +15,6 @@ public class IndicatorMenu : Gtk.Menu
     private string mode;
     private int icon_num;
     
-    private string connected    = "haguichi-connected-symbolic";
-    private string connecting1  = "haguichi-connecting-1-symbolic";
-    private string connecting2  = "haguichi-connecting-2-symbolic";
-    private string connecting3  = "haguichi-connecting-3-symbolic";
-    private string disconnected = "haguichi-disconnected-symbolic";
-    
     private Gtk.CheckMenuItem show_item;
     private Gtk.MenuItem connecting_item;
     private Gtk.MenuItem connect_item;
@@ -193,17 +187,17 @@ public class IndicatorMenu : Gtk.Menu
         {
             if (icon_num == 0)
             {
-                HaguichiIndicator.indicator.icon_name = connecting1;
+                HaguichiIndicator.indicator.icon_name = HaguichiIndicator.icon_connecting1;
                 icon_num = 1;
             }
             else if (icon_num == 1)
             {
-                HaguichiIndicator.indicator.icon_name = connecting2;
+                HaguichiIndicator.indicator.icon_name = HaguichiIndicator.icon_connecting2;
                 icon_num = 2;
             }
             else
             {
-                HaguichiIndicator.indicator.icon_name = connecting3;
+                HaguichiIndicator.indicator.icon_name = HaguichiIndicator.icon_connecting3;
                 icon_num = 0;
             }
             
@@ -238,7 +232,7 @@ public class IndicatorMenu : Gtk.Menu
                 create_item.sensitive     = true;
                 info_item.sensitive       = true;
                 
-                HaguichiIndicator.indicator.icon_name = connected;
+                HaguichiIndicator.indicator.icon_name = HaguichiIndicator.icon_connected;
                 break;
                 
             case "Disconnected":
@@ -250,7 +244,7 @@ public class IndicatorMenu : Gtk.Menu
                 create_item.sensitive     = false;
                 info_item.sensitive       = true;
                 
-                HaguichiIndicator.indicator.icon_name = disconnected;
+                HaguichiIndicator.indicator.icon_name = HaguichiIndicator.icon_disconnected;
                 break;
             
             case "Not configured":
@@ -261,7 +255,7 @@ public class IndicatorMenu : Gtk.Menu
                 create_item.sensitive     = false;
                 info_item.sensitive       = false;
                 
-                HaguichiIndicator.indicator.icon_name = disconnected;
+                HaguichiIndicator.indicator.icon_name = HaguichiIndicator.icon_disconnected;
                 break;
             
             case "Not installed":
@@ -272,7 +266,7 @@ public class IndicatorMenu : Gtk.Menu
                 create_item.sensitive     = false;
                 info_item.sensitive       = false;
                 
-                HaguichiIndicator.indicator.icon_name = disconnected;
+                HaguichiIndicator.indicator.icon_name = HaguichiIndicator.icon_disconnected;
                 break;
         }
     }

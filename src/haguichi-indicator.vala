@@ -17,6 +17,12 @@ class HaguichiIndicator : Gtk.Application
     public static Indicator indicator;
     public static AppSession session;
     
+    public static string icon_connected    = "haguichi-connected";
+    public static string icon_connecting1  = "haguichi-connecting-1";
+    public static string icon_connecting2  = "haguichi-connecting-2";
+    public static string icon_connecting3  = "haguichi-connecting-3";
+    public static string icon_disconnected = "haguichi-disconnected";
+    
     private static uint watch;
     
     public HaguichiIndicator ()
@@ -35,12 +41,23 @@ class HaguichiIndicator : Gtk.Application
         
         Intl.textdomain ("haguichi");
         
+        if (Environment.get_variable ("XDG_CURRENT_DESKTOP").has_prefix ("GNOME"))
+        {
+            string postfix = "-symbolic";
+            
+            icon_connected    += postfix;
+            icon_connecting1  += postfix;
+            icon_connecting2  += postfix;
+            icon_connecting3  += postfix;
+            icon_disconnected += postfix;
+        }
+        
         try
         {
             watch = Bus.watch_name (BusType.SESSION, "apps.Haguichi", BusNameWatcherFlags.AUTO_START, on_name_appeared, on_name_vanished);
             session = Bus.get_proxy_sync (BusType.SESSION, "apps.Haguichi", "/apps/Haguichi");
             
-            indicator = new Indicator ("haguichi", "haguichi-disconnected-symbolic", IndicatorCategory.APPLICATION_STATUS);
+            indicator = new Indicator ("haguichi", icon_disconnected, IndicatorCategory.APPLICATION_STATUS);
             indicator.set_menu (new IndicatorMenu());
             indicator.scroll_event.connect ((ind, steps, direction) =>
             {
