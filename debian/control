@@ -7,6 +7,6 @@ Homepage: https://www.haguichi.net/
 
 Package: haguichi-indicator
 Architecture: any
-Depends: haguichi (>= 1.3.0), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libappindicator3-1
+Depends: haguichi (>= 1.2.99), libglib2.0-0 (>= 2.42), libgtk-3-0 (>= 3.14), libappindicator3-1
 Replaces: haguichi-appindicator
 Description: Indicator for Haguichi
