@@ -41,7 +41,8 @@ class HaguichiIndicator : Gtk.Application
         
         Intl.textdomain ("haguichi");
         
-        if (Environment.get_variable ("XDG_CURRENT_DESKTOP").has_prefix ("GNOME"))
+        if ((Environment.get_variable ("XDG_CURRENT_DESKTOP").has_prefix ("GNOME")) ||
+            (Environment.get_variable ("XDG_CURRENT_DESKTOP") == "Pantheon"))
         {
             string postfix = "-symbolic";
             
