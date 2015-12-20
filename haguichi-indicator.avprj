@@ -1,11 +1,11 @@
 ### AutoVala Project ###
-autovala_version: 16
+autovala_version: 17
 project_name: haguichi-indicator
 *vala_version: 0.26
 
 
 vala_binary: src/haguichi-indicator
-version: 0.3.1
+version: 0.3.2
 *vala_check_package: appindicator3-0.1
 *vala_check_package: atk
 *vala_check_package: cairo
