@@ -46,7 +46,7 @@ public class IndicatorMenu : Gtk.Menu
             }
         });
         
-        connecting_item = new Gtk.MenuItem.with_label ("Connecting");
+        connecting_item = new Gtk.MenuItem.with_label ("Connecting…");
         connecting_item.sensitive = false;
         
         connect_item = new Gtk.MenuItem.with_mnemonic (_("C_onnect"));
@@ -75,7 +75,7 @@ public class IndicatorMenu : Gtk.Menu
             }
         });
         
-        join_item = new Gtk.MenuItem.with_mnemonic (_("_Join Network..."));
+        join_item = new Gtk.MenuItem.with_mnemonic (_("_Join Network…"));
         join_item.activate.connect (() =>
         {
             try
@@ -88,7 +88,7 @@ public class IndicatorMenu : Gtk.Menu
             }
         });
         
-        create_item = new Gtk.MenuItem.with_mnemonic (_("_Create Network..."));
+        create_item = new Gtk.MenuItem.with_mnemonic (_("_Create Network…"));
         create_item.activate.connect (() =>
         {
             try
