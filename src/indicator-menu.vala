@@ -106,7 +106,6 @@ public class IndicatorMenu : Gtk.Menu
         {
             try
             {
-                HaguichiIndicator.session.show();
                 HaguichiIndicator.session.information();
             }
             catch (IOError e)
