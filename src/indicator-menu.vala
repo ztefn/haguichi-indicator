@@ -46,7 +46,7 @@ public class IndicatorMenu : Gtk.Menu
             }
         });
         
-        connecting_item = new Gtk.MenuItem.with_label ("Connecting…");
+        connecting_item = new Gtk.MenuItem.with_label (_("Connecting…").replace ("…", ""));
         connecting_item.sensitive = false;
         
         connect_item = new Gtk.MenuItem.with_mnemonic (_("C_onnect"));
