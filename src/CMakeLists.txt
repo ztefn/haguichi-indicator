@@ -47,12 +47,12 @@ PACKAGES
 
 add_executable(haguichi-indicator ${VALA_C})
 
+
 install(TARGETS
 	haguichi-indicator
 RUNTIME DESTINATION
-	${CMAKE_INSTALL_BINDIR}/
+	${CMAKE_INSTALL_BINDIR}
 )
-
 if(HAVE_VALADOC)
 	valadoc(haguichi-indicator
 		${CMAKE_BINARY_DIR}/valadoc/haguichi-indicator
