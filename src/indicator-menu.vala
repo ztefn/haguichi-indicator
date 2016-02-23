@@ -12,6 +12,8 @@ using Gtk;
 
 public class IndicatorMenu : Gtk.Menu
 {
+    private const string GETTEXT_DOMAIN = "haguichi";
+    
     private string mode;
     private int icon_num;
     
@@ -26,7 +28,7 @@ public class IndicatorMenu : Gtk.Menu
     
     public IndicatorMenu()
     {
-        show_item = new CheckMenuItem.with_mnemonic (_("_Show Haguichi"));
+        show_item = new CheckMenuItem.with_mnemonic (dgettext (GETTEXT_DOMAIN, "_Show Haguichi"));
         show_item.toggled.connect (() =>
         {
             try
@@ -46,10 +48,10 @@ public class IndicatorMenu : Gtk.Menu
             }
         });
         
-        connecting_item = new Gtk.MenuItem.with_label (_("Connecting…").replace ("…", ""));
+        connecting_item = new Gtk.MenuItem.with_label (dgettext (GETTEXT_DOMAIN, "Connecting…").replace ("…", ""));
         connecting_item.sensitive = false;
         
-        connect_item = new Gtk.MenuItem.with_mnemonic (_("C_onnect"));
+        connect_item = new Gtk.MenuItem.with_mnemonic (dgettext (GETTEXT_DOMAIN, "C_onnect"));
         connect_item.activate.connect (() =>
         {
             try
@@ -62,7 +64,7 @@ public class IndicatorMenu : Gtk.Menu
             }
         });
         
-        disconnect_item = new Gtk.MenuItem.with_mnemonic (_("_Disconnect"));
+        disconnect_item = new Gtk.MenuItem.with_mnemonic (dgettext (GETTEXT_DOMAIN, "_Disconnect"));
         disconnect_item.activate.connect (() =>
         {
             try
@@ -75,7 +77,7 @@ public class IndicatorMenu : Gtk.Menu
             }
         });
         
-        join_item = new Gtk.MenuItem.with_mnemonic (_("_Join Network…"));
+        join_item = new Gtk.MenuItem.with_mnemonic (dgettext (GETTEXT_DOMAIN, "_Join Network…"));
         join_item.activate.connect (() =>
         {
             try
@@ -88,7 +90,7 @@ public class IndicatorMenu : Gtk.Menu
             }
         });
         
-        create_item = new Gtk.MenuItem.with_mnemonic (_("_Create Network…"));
+        create_item = new Gtk.MenuItem.with_mnemonic (dgettext (GETTEXT_DOMAIN, "_Create Network…"));
         create_item.activate.connect (() =>
         {
             try
@@ -101,7 +103,7 @@ public class IndicatorMenu : Gtk.Menu
             }
         });
         
-        info_item = new Gtk.MenuItem.with_mnemonic (_("_Information"));
+        info_item = new Gtk.MenuItem.with_mnemonic (dgettext (GETTEXT_DOMAIN, "_Information"));
         info_item.activate.connect (() =>
         {
             try
@@ -114,7 +116,7 @@ public class IndicatorMenu : Gtk.Menu
             }
         });
         
-        quit_item = new Gtk.MenuItem.with_mnemonic (_("_Quit"));
+        quit_item = new Gtk.MenuItem.with_mnemonic (dgettext (GETTEXT_DOMAIN, "_Quit"));
         quit_item.activate.connect (() =>
         {
             try
