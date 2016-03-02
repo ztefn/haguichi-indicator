@@ -14,7 +14,9 @@ public class IndicatorMenu : Gtk.Menu
 {
     private const string GETTEXT_DOMAIN = "haguichi";
     
-    private string mode;
+    public string mode;
+    public bool modal;
+    
     private int icon_num;
     
     private Gtk.CheckMenuItem show_item;
@@ -162,8 +164,10 @@ public class IndicatorMenu : Gtk.Menu
         show_item.active = visible;
     }
     
-    public void set_modality (bool modal)
+    public void set_modality (bool _modal)
     {
+        modal = _modal;
+        
         if (modal)
         {
             show_item.sensitive       = false;

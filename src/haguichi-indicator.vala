@@ -56,10 +56,17 @@ class HaguichiIndicator : Gtk.Application
             watch = Bus.watch_name (BusType.SESSION, "apps.Haguichi", BusNameWatcherFlags.AUTO_START, on_name_appeared, on_name_vanished);
             session = Bus.get_proxy_sync (BusType.SESSION, "apps.Haguichi", "/apps/Haguichi");
             
+            IndicatorMenu menu = new IndicatorMenu();
+            
             indicator = new Indicator ("haguichi", icon_disconnected, IndicatorCategory.APPLICATION_STATUS);
-            indicator.set_menu (new IndicatorMenu());
+            indicator.set_menu (menu);
             indicator.scroll_event.connect ((ind, steps, direction) =>
             {
+                if (menu.modal == true)
+                {
+                    return;
+                }
+                
                 try
                 {
                     if (direction == Gdk.ScrollDirection.UP)
