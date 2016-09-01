@@ -1,5 +1,5 @@
 ### AutoVala Project ###
-autovala_version: 19
+autovala_version: 21
 project_name: haguichi-indicator
 *vala_version: 0.26
 
@@ -20,4 +20,8 @@ version: 0.3.3
 *vala_source: haguichi-indicator.vala
 *vala_source: indicator-menu.vala
 *vala_source: session.vala
+
+*translate: vala src/session.vala
+*translate: vala src/haguichi-indicator.vala
+*translate: vala src/indicator-menu.vala
 
