@@ -39,6 +39,11 @@ set (APP_SOURCES ${APP_SOURCES} haguichi-indicator.vala)
 set (APP_SOURCES ${APP_SOURCES} indicator-menu.vala)
 set (APP_SOURCES ${APP_SOURCES} session.vala)
 
+
+if ((${CMAKE_BUILD_TYPE} STREQUAL "Debug") OR (${CMAKE_BUILD_TYPE} STREQUAL "RelWithDebInfo"))
+	set(COMPILE_OPTIONS ${COMPILE_OPTIONS} "-g")
+endif()
+
 vala_precompile(VALA_C haguichi-indicator
 	${APP_SOURCES}
 PACKAGES
