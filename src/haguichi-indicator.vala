@@ -39,9 +39,8 @@ class HaguichiIndicator : Gtk.Application
     {
         base.startup();
         
-        if ((Environment.get_variable ("XDG_CURRENT_DESKTOP") == "GNOME") ||
-            (Environment.get_variable ("XDG_CURRENT_DESKTOP") == "Pantheon") ||
-            (Environment.get_variable ("XDG_CURRENT_DESKTOP").has_suffix (":GNOME"))) // Any GNOME based desktop, for example "Budgie:GNOME"
+        if ((Environment.get_variable ("XDG_CURRENT_DESKTOP").contains ("GNOME")) || // Match any GNOME based desktop, thus also stuff like "GNOME-Flashback" and "Budgie:GNOME"
+            (Environment.get_variable ("XDG_CURRENT_DESKTOP") == "Pantheon"))
         {
             string postfix = "-symbolic";
             
