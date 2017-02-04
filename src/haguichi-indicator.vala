@@ -59,6 +59,7 @@ class HaguichiIndicator : Gtk.Application
             IndicatorMenu menu = new IndicatorMenu();
             
             indicator = new Indicator ("haguichi", icon_disconnected, IndicatorCategory.APPLICATION_STATUS);
+            indicator.set_title ("Haguichi");
             indicator.set_menu (menu);
             indicator.scroll_event.connect ((ind, steps, direction) =>
             {
