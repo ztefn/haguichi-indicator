@@ -8,15 +8,15 @@
 
   The following development packages are required to build Haguichi Indicator:
 
-    * cmake (>= 2.6)
-    * valac (>= 0.26)
-    * glib-2.0 (>= 2.42)
-    * gtk+-3.0 (>= 3.14)
-    * appindicator3
+   * cmake (>= 2.6)
+   * valac (>= 0.26)
+   * glib-2.0 (>= 2.42)
+   * gtk+-3.0 (>= 3.14)
+   * appindicator3
 
   On Debian based distributions you can install these packages by running the following command:
 
-    $ sudo apt-get install build-essential cmake valac libglib2.0-dev libgtk-3-dev libappindicator3-dev
+    $ sudo apt install build-essential cmake valac libglib2.0-dev libgtk-3-dev libappindicator3-dev
 
 
   Building
