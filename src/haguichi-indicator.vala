@@ -17,6 +17,8 @@ class HaguichiIndicator : Gtk.Application
     public static Indicator indicator;
     public static AppSession session;
     
+    public static string current_desktop;
+    
     public static string icon_connected    = "haguichi-connected";
     public static string icon_connecting1  = "haguichi-connecting-1";
     public static string icon_connecting2  = "haguichi-connecting-2";
@@ -39,8 +41,11 @@ class HaguichiIndicator : Gtk.Application
     {
         base.startup();
         
-        if ((Environment.get_variable ("XDG_CURRENT_DESKTOP").contains ("GNOME")) || // Match any GNOME based desktop, thus also stuff like "GNOME-Flashback" and "Budgie:GNOME"
-            (Environment.get_variable ("XDG_CURRENT_DESKTOP") == "Pantheon"))
+        current_desktop = Environment.get_variable ("XDG_CURRENT_DESKTOP");
+        
+        // Only on specific desktops we use symbolic icons
+        if ((current_desktop.contains ("GNOME")) ||
+            (current_desktop == "Pantheon"))
         {
             string postfix = "-symbolic";
             
@@ -63,6 +68,7 @@ class HaguichiIndicator : Gtk.Application
             indicator.set_menu (menu);
             indicator.scroll_event.connect ((ind, steps, direction) =>
             {
+                // Never hide the main window when a modal dialog is being shown
                 if (menu.modal == true)
                 {
                     return;
@@ -70,6 +76,7 @@ class HaguichiIndicator : Gtk.Application
                 
                 try
                 {
+                    // Show the main window when scrolling up and hide it when scrolling down
                     if (direction == Gdk.ScrollDirection.UP)
                     {
                         session.show();
@@ -90,7 +97,8 @@ class HaguichiIndicator : Gtk.Application
             stderr.printf (e.message);
         }
         
-        hold(); // Keep this application running without window
+        // Keep this application running without window
+        hold();
     }
     
     static int main (string[] args)
