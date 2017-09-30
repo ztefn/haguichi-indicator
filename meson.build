@@ -1,5 +1,5 @@
 project('haguichi-indicator', ['vala', 'c'],
-    version: '0.3.4',
+    version: '0.3.5',
     default_options: ['prefix=/usr'],
     meson_version: '>= 0.40'
 )
