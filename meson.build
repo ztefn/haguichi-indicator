@@ -1,4 +1,6 @@
-project('haguichi-indicator', ['vala', 'c'],
+project(
+    'haguichi-indicator',
+    ['vala', 'c'],
     version: '0.3.5',
     default_options: ['prefix=/usr'],
     meson_version: '>= 0.40'
@@ -18,9 +20,9 @@ sources = [
 deps = [
     dependency('appindicator3-0.1'),
     dependency('gio-2.0'),
-    dependency('glib-2.0', version: '>=2.42'),
+    dependency('glib-2.0', version: '>= 2.42'),
     dependency('gobject-2.0'),
-    dependency('gtk+-3.0', version: '>=3.14')
+    dependency('gtk+-3.0', version: '>= 3.14')
 ]
 
 executable(
